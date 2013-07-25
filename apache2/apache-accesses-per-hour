@@ -12,4 +12,4 @@ function smart_cat () {
 function apache_accesses_per_hour () {
     smart_cat $* | awk '{print $4}' | awk -F [ '{print $2}' | awk -F : '{print $1 ":" $2 ":00" }' | sort | uniq -c
 }
-apache_accesses_per_hour /var/log/httpd/access_log*
+apache_accesses_per_hour /var/log/apache2/access.log*

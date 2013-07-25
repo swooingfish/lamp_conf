@@ -12,4 +12,4 @@ function smartcat () {
 function apache_accesses_per_ip () {
     smartcat $* | gawk '{print $1}' | sort | uniq -c | sort -n
 }
-apache_accesses_per_ip /var/log/httpd/access_log*
+apache_accesses_per_ip /var/log/apache2/access.log*

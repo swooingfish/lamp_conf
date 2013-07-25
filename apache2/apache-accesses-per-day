@@ -18,4 +18,4 @@ function smart_cat () {
 function apache_accesses_per_day () {
     smart_cat $* | awk '{print $4}' | awk -F [ '{print $2}' | awk -F : '{print $1}' | sort | uniq -c 
 }
-apache_accesses_per_day /var/log/apache2/access_log*
+apache_accesses_per_day /var/log/apache2/access.log*
