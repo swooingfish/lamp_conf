@@ -1,0 +1,10 @@
+# Prints any request over 300 bytes long.
+# Useful to run this accross several log files to look for suspicious
+# requests after a compromise.  Example Output (truncated):
+#
+# exampledomain.com-access_log ... /wget?cmd.exe+3040FFIJEIJGE...30r9jf09jffe
+
+function apache_large_requests () {
+    perl -n -e '@a=split; $r=$a[6]; print "$ARGV ... $r\n" if length($r)>300;' "$@"
+}
+apache_large_requests /var/log/httpd/access_log*

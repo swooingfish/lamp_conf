@@ -1,0 +1,17 @@
+# Run Apache buddy script, which analyzes Apache's memory usage.
+# Example output:
+#
+#         Your server's physical RAM:             249MB
+#         Apache's MaxClients directive:          256
+#         Largest Apache process (by memory):     4.58MB
+# -----------------------------------------------------------------------
+# [ !! ]  Your MaxClients setting is too high. It should be no greater
+#         than 54.
+#         (max potential memory usage: 1172.48MB)
+
+function apache_buddy () {
+    curl -L -s http://quicksnips.dunsmor.com/remote/apachebuddy.pl | perl |
+    sed -n '/Settings considered for this report/,$p'| sed '1d' |
+    grep -v -- "------------------------------"
+}
+apache_buddy

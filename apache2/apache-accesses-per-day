@@ -1,0 +1,21 @@
+# Shows Apache accesses per day
+# Example output:
+# 
+#      44 16/Feb/2009
+#      32 18/Feb/2009
+#       4 17/Jan/2009
+#       2 22/Dec/2008
+
+function smart_cat () {
+    for file in $*; do
+        if [ "$( file $file|awk '{ print $2 }' )" == "gzip" ]; then
+            zcat $file
+        else
+            cat $file
+        fi
+    done
+}
+function apache_accesses_per_day () {
+    smart_cat $* | awk '{print $4}' | awk -F [ '{print $2}' | awk -F : '{print $1}' | sort | uniq -c 
+}
+apache_accesses_per_day /var/log/apache2/access_log*
