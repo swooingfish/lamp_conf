@@ -1,0 +1,29 @@
+<IfModule mod_ssl.c>
+<VirtualHost cm-i7:443>
+	VirtualDocumentRoot /var/www/vhosts/cm-i7/httpdocs/
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+
+	CustomLog ${APACHE_LOG_DIR}/ssl_access.log combined
+
+	#   SSL Engine Switch:
+	#   Enable/Disable SSL for this virtual host.
+	SSLEngine On
+	SSLCertificateFile /etc/apache2/ssl/cm-i7.crt
+	SSLCertificateKeyFile /etc/apache2/ssl/cm-i7.key 
+
+	#   Server Certificate Chain:
+	#   Point SSLCertificateChainFile at a file containing the
+	#   concatenation of PEM encoded CA certificates which form the
+	#   certificate chain for the server certificate. Alternatively
+	#   the referenced file can be the same as SSLCertificateFile
+	#   when the CA certificates are directly appended to the server
+	#   certificate for convinience.
+	#SSLCertificateChainFile /etc/apache2/ssl.crt/server-ca.crt
+
+</VirtualHost>
+</IfModule>

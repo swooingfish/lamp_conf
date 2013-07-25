@@ -1,0 +1,8 @@
+<VirtualHost {server_ip}>
+       	ServerName www.{domainname}
+	ServerAlias {domainname}
+       	DocumentRoot /var/www/vhosts/{domainname}/httpdocs/
+	CustomLog /var/www/vhosts/{domainname}/logs/access.log combined
+</VirtualHost>
+
+
