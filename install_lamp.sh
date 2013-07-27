@@ -62,5 +62,5 @@ echo ''
 
 # Webmin
 wget http://downloads.sourceforge.net/project/webadmin/webmin/1.630/webmin_1.630_all.deb
-sudo dkpg -i webmin_1.630_all.deb
+sudo dpkg -i webmin_1.630_all.deb
 sudo apt-get install -f -y
