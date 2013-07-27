@@ -21,6 +21,23 @@ sudo a2enmod headers
 sudo a2enmod mime
 sudo a2enmod ssl
 
+
+if [ -d "/var/www/" ] 				# Check to see if it already exists
+then
+	echo "Apache www directory is already created"
+else
+	echo "Setting up apache www directory"
+	sudo mkdir /var/www
+fi 
+
+if [ -d "/var/www/vhosts/" ] 				# Check to see if it already exists
+then
+	echo "VHOSTS Apache directory is already created"
+else
+	echo "Setting up apache vhosts directory"
+	sudo mkdir /var/www/vhosts
+fi 
+
 echo '********************************************************************************'
 echo 'Backing up default apache site'
 sudo mv /etc/apache2/sites-available/default /etc/apache2/sites-available/default_org
