@@ -22,6 +22,14 @@ sudo a2enmod mime
 sudo a2enmod ssl
 
 
+if [ -d "/etc/apache2/ssl/" ] 				# Check to see if it already exists
+then
+	echo "Apache ssl directory is already created"
+else
+	echo "Setting up apache ssl directory"
+	sudo mkdir /etc/apache2/ssl
+fi 
+
 if [ -d "/var/www/" ] 				# Check to see if it already exists
 then
 	echo "Apache www directory is already created"
