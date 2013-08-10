@@ -5,7 +5,7 @@ sudo apt-get update; sudo apt-get upgrade
 
 echo '********************************************************************************'
 echo 'Installing apache2, php and mysql'
-sudo apt-get install apache2 php5 mysql-server php5-mysql php5-curl php5-gd php-soap php5-tidy php5-imagick php-xml-parser -f -y
+sudo apt-get install apache2 php5 mysql-server php5-mysql php5-mcrypt php5-curl php5-gd php-soap php5-tidy php5-imagick php-xml-parser -f -y
 
 # Setup vhosts to work
 echo '********************************************************************************'
